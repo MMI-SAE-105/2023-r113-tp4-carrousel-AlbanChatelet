@@ -15,6 +15,7 @@
     img {
         width: 100%;
         height: auto;
+        border-radius:5%;
     }
     .carrousel_parent-ecrans {
         display: flex;
@@ -49,11 +50,11 @@
     }
     
     .carrousel_btn-avant {
-    left: 0;
+        left: 0;
     }
 
     .carrousel_btn-apres {
-    right: 0;
+        right: 0;
     }
 </style>
 
@@ -62,7 +63,10 @@
         
 
         <div class="carrousel" x-data="{}">
-            <button class="carrousel_btn carrousel_btn-avant" aria-label="slide précedant"><</button><button class="carrousel_btn carrousel_btn-apres" aria-label="slide suivant">></button>
+            <button @click="$refs.parent.scrollLeft -= $refs.parent.clientWidth" class="carrousel_btn carrousel_btn-avant"
+                aria-label="slide précedant">&lt;</button>
+            <button @click="$refs.parent.scrollLeft += $refs.parent.clientWidth" class="carrousel_btn carrousel_btn-apres"
+                aria-label="slide suivant">></button>
             <div class="carrousel_parent-ecrans">
                 <div id="ecran-1" class="carrousel_ecran">
                     <figure>
